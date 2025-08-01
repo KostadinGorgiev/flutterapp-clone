@@ -4,6 +4,12 @@ $main-color: #F5593E;
 $second-color: #F2E9E0;
 $main-font: 'Poppins', sans-serif;
 
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
