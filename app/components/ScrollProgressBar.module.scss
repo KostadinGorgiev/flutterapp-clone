@@ -1,0 +1,20 @@
+@use "../app.scss" as *;
+
+.scrollProgressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 123;
+
+    .scrollProgressBarInner {
+        position: relative;
+        height: 100%;
+        width: 0%;
+        z-index: 2;
+        top: 0;
+        transition: all .2s ease-in-out;
+        background: $main-color;
+    }
+}

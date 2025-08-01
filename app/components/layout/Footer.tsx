@@ -1,4 +1,4 @@
-import type { FC } from "react"
+import { useEffect, useRef, type FC } from "react"
 import styles from "./Footer.module.scss"
 import Container from "@components/Container"
 import { FaFeatherPointed, FaInstagram } from "react-icons/fa6"
@@ -6,10 +6,35 @@ import { IoMdArrowDropright } from "react-icons/io"
 import { AiOutlineHome } from "react-icons/ai"
 import { RiTwitterXFill } from "react-icons/ri"
 import { BiLogoFacebook } from "react-icons/bi"
+import { useTheme } from "../../contexts/ThemeContext"
 
 const Footer: FC = () => {
+
+    const { setFooterHeight } = useTheme();
+    const footerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (footerRef.current) {
+            setFooterHeight(footerRef.current.clientHeight);
+        }
+
+        window.addEventListener("resize", () => {
+            if (footerRef.current) {
+                setFooterHeight(footerRef.current.clientHeight);
+            }
+        });
+
+        return () => {
+            window.removeEventListener("resize", () => {
+                if (footerRef.current) {
+                    setFooterHeight(footerRef.current.clientHeight);
+                }
+            });
+        }
+    }, [footerRef.current]);
+
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} ref={footerRef}>
             <Container>
                 <div className={styles.footerTop}>
                     <div className={`${styles.footerItem} ${styles.footerFirst}`}>

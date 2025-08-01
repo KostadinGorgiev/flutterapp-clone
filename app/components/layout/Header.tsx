@@ -1,4 +1,4 @@
-import { useState, type FC } from "react"
+import { type FC } from "react"
 import Container from "@components/Container"
 
 import Logo from '@assets/images/wordmark-tagline-black.png'
@@ -7,10 +7,11 @@ import styles from './Header.module.scss';
 
 import { FaBolt } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Header: FC = () => {
 
-    const [showMenu, setShowMenu] = useState(false);
+    const { showMenu, toggleMenu } = useTheme();
 
     return (
         <div className={styles.header}>
@@ -35,7 +36,7 @@ const Header: FC = () => {
                         <span>List Your Property</span>
                     </a>
                     <div className={styles.mobileMenu}>
-                        <div className={`${styles.menuBtn} ${showMenu ? styles.active : ''}`} onClick={() => setShowMenu(!showMenu)}>
+                        <div className={`${styles.menuBtn} ${showMenu ? styles.active : ''}`} onClick={toggleMenu}>
                             <div className={styles.menuBtnIcon}>
                                 <span></span>
                                 <span></span>

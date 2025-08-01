@@ -1,0 +1,10 @@
+.heightEmulator {
+    z-index: 1;
+    position: relative;
+
+    display: block;
+
+    @media (max-width: 1180px) {
+        display: none;
+    }
+}

@@ -3,6 +3,8 @@ import { Outlet } from "react-router"
 import Header from "@layouts/Header"
 import Footer from "@layouts/Footer"
 import MobileNavOverlay from "@components/MobileNavOverlay"
+import HeightEmulator from "@components/HeightEmulator"
+import ScrollProgressBar from "@components/ScrollProgressBar"
 
 const Layout: FC = () => {
     return (
@@ -12,7 +14,8 @@ const Layout: FC = () => {
                 <div className="content">
                     <Outlet />
                 </div>
-                <div className="height-emulator" style={{ height: "685px" }}></div>
+                <HeightEmulator />
+                <ScrollProgressBar />
                 <Footer />
             </div>
             <MobileNavOverlay />
